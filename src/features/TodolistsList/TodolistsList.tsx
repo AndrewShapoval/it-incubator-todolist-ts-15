@@ -69,7 +69,7 @@ export const TodolistsList: React.FC = () => {
 
     return <>
         <Grid container style={{padding: '20px'}}>
-            <AddItemForm addItem={addTodolist}/>
+            <AddItemForm addItem={addTodolist} entityStatus={"idle"}/>
         </Grid>
         <Grid container spacing={3}>
             {
@@ -82,6 +82,7 @@ export const TodolistsList: React.FC = () => {
                                 id={tl.id}
                                 title={tl.title}
                                 tasks={allTodolistTasks}
+                                entityStatus={tl.entityStatus}
                                 removeTask={removeTask}
                                 changeFilter={changeFilter}
                                 addTask={addTask}
