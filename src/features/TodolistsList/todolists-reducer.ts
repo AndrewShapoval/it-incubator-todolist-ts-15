@@ -85,8 +85,12 @@ export const addTodolistTC = (title: string) => {
                     } else {
                         dispatch(setAppErrorAC('Some error occurred'))
                     }
-                    dispatch(setAppStatusAC('failed'))
                 }
+                dispatch(setAppStatusAC('succeeded'))
+            })
+            .catch((err) => {
+                dispatch(setAppErrorAC(err.message))
+                dispatch(setAppStatusAC('failed'))
             })
     }
 }
